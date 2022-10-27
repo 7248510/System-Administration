@@ -7,8 +7,9 @@ gitlabDelete() {
     sudo apt autoremove -y
     sudo rm -rf /etc/apt/sources.list.d
     systemctl | grep gitlab # = This will check if Gitlab still has a service
-    systemctl disable gitlab-runsvdir #Disable the service
-    systemctl daemon-reload #Reload the daemon
-    systemctl reset-failed #systemctl reset-failed
+    sudo systemctl stop gitlab-runsvdir
+    sudo systemctl disable gitlab-runsvdir #Disable the service
+    sudo systemctl daemon-reload #Reload the daemon
+    sudo systemctl reset-failed #systemctl reset-failed
     systemctl | grep gitlab # Check if the service is still there. It shouldn't be
 }
