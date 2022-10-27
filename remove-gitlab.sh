@@ -4,7 +4,7 @@ gitlabDelete() {
     sudo killall -u git  # This is the gitlab user account
     sudo dpkg -P gitlab-ee #Remove the gitlab package | ce or ee
     sudo rm -rf /opt/gitlab/
-    sudo apt autoremove
+    sudo apt autoremove -y
     sudo rm -rf /etc/apt/sources.list.d
     systemctl | grep gitlab # = This will check if Gitlab still has a service
     systemctl disable gitlab-runsvdir #Disable the service
